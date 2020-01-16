@@ -12,7 +12,9 @@
 
 <p>
   <strong>Image:</strong>
-  <%=  image_tag @picture.image.url %>
+  <% unless @picture.image.blank? %>
+    <%= image_tag @picture.image.url %>
+  <% end %>
 </p>
 
 <p>
