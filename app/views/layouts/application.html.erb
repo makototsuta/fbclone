@@ -5,23 +5,50 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <body class="all">
+    <header>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <form action="http://localhost:3000/pictures" method="get">
+              <i class="fab fa-facebook-square fab-color"></i>
+              <input type="search" name="q" value="" placeholder="キーワード"><input type="submit" name="btn_search" value="&#xf002" class="fas">
+            </form>
+          </div>
+          <div class="face-img d-none d-lg-block">
+            <a href="#"><img src="/assets/HASHI.jpg" alt="写真"><span>蔦 真人</span></a>
+            <a href="#" class="home">ホーム</a>
+            <a href="#" class="make">作成</a>
+            <a href="#" class="request"><i class="fas fa-user-friends fa-lg"></i></a>
+            <a href="#" class="message"><i class="fab fa-facebook-messenger fa-lg"></i></a>
+            <a href="#" class="news"><i class="fas fa-bell fa-lg"></i></a>
+            <a href="#" class="account"><i class="fas fa-user-cog fa-lg"></i></a>
+            <a href="#" class="quickhelp"><i class="fas fa-question-circle fa-lg"></i></a>
+          </div>
+          <div class="login d-none d-xl-block">
+            <a href="#" class="triangle"><i class="fas fa-caret-down fa-lg"></i></a>
+            <a>
+              <% flash.each do |key, value| %>
+                <%= content_tag(:div, value, class: "#{key}") %>
+              <% end %>
 
-  <body>
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: "#{key}") %>
-    <% end %>
-
-    <% if logged_in? %>
-      <%= link_to "Profile", user_path(current_user.id) %>
-      <%= link_to "Logout", session_path(current_user.id), method: :delete %>
-    <% else %>
-      <%= link_to "Sign up", new_user_path %>
-      <%= link_to "Login", new_session_path %>
-    <% end %>
-
+              <% if logged_in? %>
+                <%= link_to "Profile", user_path(current_user.id) %>
+                <%= link_to "Logout", session_path(current_user.id), method: :delete %>
+              <% else %>
+                <%= link_to "Sign up", new_user_path %>
+                <%= link_to "Login", new_session_path %>
+              <% end %>
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
 
     <%= yield %>
   </body>

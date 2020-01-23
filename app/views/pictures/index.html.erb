@@ -1,33 +1,137 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Pictures</h1>
+<body>
+<main class="container-fluid">
+  <div class="row">
+    <div class='col-3 col-md-3 col-lg-2 left-section'>
+      <div class="face-img">
+        <a href="#"><img src="/assets/HASHI.jpg" alt="写真"><span>蔦 真人</span></a>
+      </div>
+      <ul>
+        <li><a href="#" class="newsfeed"><i class="fas fa-newspaper"></i><span>ニュースフィード</span></a></li>
+        <li><a href="#" class="messenger"><i class="fab fa-facebook-messenger fa-lg"></i><span>Messenger</span></a></li>
+        <li><a href="#" class="watch"><i class="fab fa-youtube"></i><span>Watchの動画</span></a></li>
+      </ul>
+      <div class="shortcut">
+        <p>ショートカット</p>
+      </div>
+      <ul>
+        <li><a href="#"><i class="fas fa-wine-glass-alt"></i><span>aaaaa</span></a></li>
+        <li><a href="#"><i class="fab fa-accessible-icon"></i><span>bbbbb</span></a></li>
+        <li><a href="#"><i class="fas fa-adjust"></i><span>ccccc</span></a></li>
+      </ul>
+      <div class="discovery">
+        <p>発見</p>
+      </div>
+      <ul>
+        <li><a href="#"><i class="fas fa-adjust"></i><span>グループ</span></a></li>
+        <li><a href="#"><i class="fas fa-adjust"></i><span>募金キャンペーン</span></a></li>
+        <li><a href="#"><i class="fas fa-adjust"></i><span>ページ</span></a></li>
+        <li><a href="#"><i class="fas fa-adjust"></i><span>イベント</span></a></li>
+        <li><a href="#"><i class="fas fa-adjust"></i><span>友達一覧</span></a></li>
+        <li><a href="#"><i class="fas fa-adjust"></i><span>思い出</span></a></li>
+        <li><a href="#"><i class="fas fa-adjust"></i><span>ゲーム</span></a></li>
+        <li><a href="#"><i class="fas fa-adjust"></i><span>最近の広告</span></a></li>
+        <li><a href="#"><i class="fas fa-adjust"></i><span>Oculus</span></a></li>
+        <li><a href="#"><i class="fas fa-adjust"></i><span>災害支援ハブ</span></a></li>
+        <li><a href="#"><i class="fas fa-adjust"></i><span>天気</span></a></li>
+        <li><a href="#"><i class="fas fa-adjust"></i><span>クーポン</span></a></li>
+        <li><a href="#"><i class="fas fa-adjust"></i><span>求人</span></a></li>
+        <li><a href="#"><i class="fas fa-adjust"></i><span>保存済み</span></a></li>
+        <li><a href="#"><i class="fas fa-adjust"></i><span>ゲーム動画</span></a></li>
+        <li><a href="#"><i class="fas fa-adjust"></i><span>おすすめ情報</span></a></li>
+      </ul>
+    </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th>Image</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <div class="col-6 col-md-6 col-lg-5 article">
+      <div class='new-post'>
+        <%= link_to '投稿を作成', new_picture_path %>
+      </div>
+      <div class='post-content'>
+        <p><img src="/assets/HASHI.jpg" alt="写真"><span>蔦 真人さん-今何してる？</span></a></p>
+        <hr>
+        <a href="#"><span>写真・動画</span></a>
+        <a href="#"><span>友達をタグ付け</span></a>
+        <a href="#"><span>チェックイン</span></a>
+      </div>
+      <div class="stories">
+        <p>ストーリーズ</p>
+        <div class="stories1">
+          <img src="/assets/HASHI.jpg" alt="写真">
+          <p>ストーリーズに追加</p>
+        </div>
+        <div class="stories2">
+          <img src="/assets/HASHI.jpg" alt="写真">
+          <p>aaaa</p>
+        </div>
+        <div class="stories3">
+          <img src="/assets/HASHI.jpg" alt="写真">
+          <p>bbbb</p>
+        </div>
+        <div class="stories4">
+          <img src="/assets/HASHI.jpg" alt="写真">
+          <p>cccc</p>
+        </div>
+      </div>
+      <div class="posted">
+        <% @pictures.each do |picture| %>
+          <p><img src="/assets/HASHI.jpg" alt="写真"><span><%= picture.user.name %></span></a></p>
+          <p><%= picture.title %></p>
+          <br>
+          <p><%= picture.content %></p>
+          <br>
+          <div class="posted1">
+            <img src="<%= picture.image %>" alt="">
+          </div>
+          <hr>
+          <%= link_to 'Show', picture %>
+          <%= link_to 'Edit', edit_picture_path(picture) %>
+          <%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <hr>
+          <a href="#"><i class="far fa-thumbs-up fa-lg"></i><span>いいね</span></a>
+          <a href="#"><i class="far fa-comment-alt fa-lg"></i><span>コメント</span></a>
+          <hr>
+          <img src="/assets/HASHI.jpg" alt="写真"><input type="text" name="" value="コメントする">
+          <div class="clearance"></div>
+        <% end %>
+      </div>
+    </div>
 
-  <tbody>
-    <% @pictures.each do |picture| %>
-      <tr>
-        <td><%= picture.title %></td>
-        <td><%= picture.content %></td>
-        <td><%= picture.image %></td>
-        <td><%= picture.user.name %></td>
-        <td><%= link_to 'Show', picture %></td>
-        <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
-        <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <div class='col-3 col-md-3 col-lg-3 right-section'>
+      <div class="new-friends">
+        <p>知り合いかも</p>
+        <div class="friends1">
+          <a href="#"><img src="/assets/HASHI.jpg" alt="写真"></a>
+          <ul>
+            <a href="#"><li>aaa</li></a>
+            <a href="#"><li>共通の友達10人</li></a>
+            <a href="#"><li><button type="button" name="button">友達になる</button><button type="button" name="button">削除</button></li></a>
+          </ul>
+        </div>
+        <div class="friends2">
+          <a href="#"><img src="/assets/HASHI.jpg" alt="写真"></a>
+          <ul>
+            <a href="#"><li>bbb</li></a>
+            <a href="#"><li>共通の友達10人</li></a>
+            <a href="#"><li><button type="button" name="button">友達になる</button><button type="button" name="button">削除</button></li></a>
+          </ul>
+        </div>
+        <div class="friends3">
+          <a href="#"><img src="/assets/HASHI.jpg" alt="写真"></a>
+          <ul>
+            <a href="#"><li>ccc</li></a>
+            <a href="#"><li>共通の友達10人</li></a>
+            <a href="#"><li><button type="button" name="button">友達になる</button><button type="button" name="button">削除</button></li></a>
+          </ul>
+        </div>
+      </div>
+     </div>
 
-<br>
-
-<%= link_to 'New Picture', new_picture_path %>
+    <div class='d-none d-lg-block col-lg-2 side-bar'>
+      <div class=""><img src="/assets/HASHI.jpg" alt="写真"><span>aaa</span></a></div>
+      <div class=""><img src="/assets/HASHI.jpg" alt="写真"><span>bbb</span></a></div>
+      <div class=""><img src="/assets/HASHI.jpg" alt="写真"><span>ccc</span></a></div>
+    </div>
+  </div>
+</main>
+</body>

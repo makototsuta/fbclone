@@ -9,7 +9,9 @@ gem 'pg', '>= 0.18', '< 2.0'
 
 gem 'puma', '~> 3.11'
 
-gem 'bootstrap-sass'
+gem 'bootstrap', '~> 4.1.1'
+
+gem 'jquery-rails'
 
 gem 'sass-rails', '~> 5.0'
 
@@ -27,6 +29,8 @@ gem 'bcrypt', '3.1.11'
 
 gem 'carrierwave'
 gem 'mini_magick'
+
+gem "font-awesome-sass"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
