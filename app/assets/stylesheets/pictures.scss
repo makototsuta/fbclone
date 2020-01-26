@@ -288,20 +288,20 @@ ul {
   margin: 10px 10px;
 }
 
-.actions input {
-  width: 130px;
-  border: solid 1px #dbd4d4;
-  background-color: #f3f3f3;
-}
-
 p img {
   object-fit: cover;
-  width: 100px;
-  height: 100px;
+  width: 300px;
+  height: 150px;
 }
 
 .field img {
   object-fit: cover;
   width: 100px;
   height: 100px;
+}
+
+form img {
+  object-fit: cover;
+  width: 300px;
+  height: 150px;
 }

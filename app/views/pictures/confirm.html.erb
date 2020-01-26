@@ -11,6 +11,7 @@
   <%= form.text_area :content %>
   <br>
   <%= image_tag(@picture.image.url) if @picture.image && @picture.image.url %>
+  <br>
   <%= form.hidden_field :image_cache %>
   <%= form.submit "投稿する" %>
 <% end %>
